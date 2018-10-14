@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th xmlns:layout layout:decorate="~{layout/common}">
+<head>
+<meta charset="UTF-8">
+<title>Câu</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container pt-5 pb-5">
+		
+			<div th:replace="~{fragments/form-input :: searchbar}"></div>
+
+			<div class="row p-3 m-0" style="background-color: #FFFFFF;">
+
+				<h5>Cụm từ</h5>
+				<div th:if="${#lists.size(phrases)}==0" class="alert alert-danger"
+					role="alert">Không tìm thấy kết quả</div>
+				<table th:unless="${#lists.size(phrases)}==0"
+					class="table table-sm ">
+					<tr th:each="p : ${phrases}">
+						<td>
+							<div>
+								<small><strong th:text="${p.text}" class="text-danger"></strong></small>
+							</div>
+							<div>
+								<small th:text="${p.meaning}" class="text-secondary"></small>
+							</div>
+						</td>
+					</tr>
+				</table>
+				
+				<div th:replace="~{fragments/pagination :: dictionary}"></div>
+			
+			</div>
+
+			<div class="pb-5"></div>
+		</div>
+	</div>
+</body>
+</html>

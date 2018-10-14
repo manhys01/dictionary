@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th xmlns:layout layout:decorate="~{layout/common}">
+<head>
+<meta charset="UTF-8">
+<title>Từ điển Yoshi</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="centered row">
+			<form th:action="@{/dictionary}" method="GET" class="input-group">
+				<input type="search" name="query" placeholder="Tìm kiếm"
+					aria-label="Search" class="form-control"> <select
+					name="entity" class="mr-1 selectEntity">
+					<option value="all">Tất cả</option>
+					<option value="vocabulary">Từ</option>
+					<option value="sentence">Câu</option>
+					<option value="phrase">Cụm từ</option>
+				</select>
+				<button class="btn btn-success">
+					<i class="fas fa-search"></i> Tìm
+				</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

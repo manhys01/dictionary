@@ -1,0 +1,29 @@
+html {
+	position: relative;
+	min-height: 100% ;
+	background-color: #EEEEEE;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.centered {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background-color: #FFFFFF;
+	transform: translate(-50%, -50%);
+}
+
+.selectEntity {
+	border-radius: 0;
+	width: 80px;
+	border-top: 1px solid #ced4da;
+	border-right: 1px solid #ced4da;
+	border-bottom: 1px solid #ced4da;
+	border-left: none;
+}

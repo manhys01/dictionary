@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th xmlns:layout layout:decorate="~{layout/common}">
+<head>
+<meta charset="UTF-8">
+<title>Câu</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		
+		<div class="container pt-5 pb-5">
+		
+			<div th:replace="~{fragments/form-input :: searchbar}"></div>
+			
+			<div class="row p-3 m-0" th:object="${dictionary}"
+				style="background-color: #FFFFFF;">
+				<!-- vocabulary -->
+				<div class="col-md-4">
+					<h5>Từ</h5>
+					<div th:if="*{#lists.size(vocabularyDictionaries)}==0"
+						class="alert alert-danger" role="alert">Không tìm thấy kết
+						quả</div>
+					<table th:unless="*{#lists.size(vocabularyDictionaries)}==0"
+						class="table table-sm">
+						<tr th:each="v : *{vocabularyDictionaries}">
+							<td>
+								<div>
+									<small><strong th:text="${v.text}" class="text-danger"></strong></small>
+								</div>
+								<div>
+									<small th:text="${v.meaning}" class="text-secondary"></small>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="col-md-4">
+					<h5>Cụm từ</h5>
+					<div th:if="*{#lists.size(phraseDictionaries)}==0"
+						class="alert alert-danger" role="alert">Không tìm thấy kết
+						quả</div>
+					<table th:unless="*{#lists.size(phraseDictionaries)}==0"
+						class="table table-sm ">
+						<tr th:each="p : *{phraseDictionaries}">
+							<td>
+								<div>
+									<small><strong th:text="${p.text}" class="text-danger"></strong></small>
+								</div>
+								<div>
+									<small th:text="${p.meaning}" class="text-secondary"></small>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="col-md-4">
+					<h5>Câu</h5>
+					<div th:if="*{#lists.size(sentenceDicionaries)}==0"
+						class="alert alert-danger" role="alert">Không tìm thấy kết
+						quả</div>
+					<table th:unless="*{#lists.size(sentenceDicionaries)}==0"
+						class="table table-sm">
+						<tr th:each="s : *{sentenceDicionaries}">
+							<td>
+								<div>
+									<small><strong th:text="${s.text}" class="text-danger"></strong></small>
+								</div>
+								<div>
+									<small th:text="${s.meaning}"></small>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="pb-5"></div>
+		</div>
+	</div>
+	
+</body>
+</html>

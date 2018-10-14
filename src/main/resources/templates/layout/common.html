@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org" xmlns:layout>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- font-awesome -->
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+
+<!-- css bootstrap core -->
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+<!-- css common -->
+<link rel="stylesheet" th:href="@{/css/common.css}" />
+
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Yoshi
+	Dictionary</title>
+</head>
+<body>
+
+	<!-- navbar -->
+	<nav th:replace="fragments/navbars :: common"></nav>
+
+	<!-- content -->
+	<section id="content" layout:fragment="content" style="background-color: #EEEEEE"></section>
+
+	<!-- footer -->
+	<footer th:replace="fragments/footers :: footer"> </footer>
+
+	<!-- script core jQuery, popper, bootstrap -->
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+	<th:block layout:fragment="script">
+		<!-- custom script -->
+	</th:block>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<nav th:fragment="dictionary" aria-label="page"
+		th:remove="${#lists.size(pagination.controls)}<=1 ? 'ALL' ">
+		<ul class="pagination pagination-sm">
+			<li class="page-item"
+				th:each="control, controlStat: ${pagination.controls}"
+				th:classappend="${control.actived} ? 'active'"><a
+				class="page-link"
+				th:href="${control.page}==1 ? @{/dictionary(query=${param.query}, entity=${param.entity})}  
+					    : @{/dictionary(query=${param.query}, entity=${param.entity} , page=__${control.page}__)}"
+				th:text="${control.label}">1</a></li>
+		</ul>
+	</nav>
+</body>
+</html>
