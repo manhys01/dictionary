@@ -6,20 +6,9 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<div class="centered row">
-			<form th:action="@{/dictionary}" method="GET" class="input-group">
-				<input type="search" name="query" placeholder="Tìm kiếm"
-					aria-label="Search" class="form-control"> <select
-					name="entity" class="mr-1 selectEntity">
-					<option value="all">Tất cả</option>
-					<option value="vocabulary">Từ</option>
-					<option value="sentence">Câu</option>
-					<option value="phrase">Cụm từ</option>
-				</select>
-				<button class="btn btn-success">
-					<i class="fas fa-search"></i> Tìm
-				</button>
-			</form>
+		<div class="container pt-5">
+			<h1>Từ điển Yo Shi</h1>
+			<div th:replace="~{fragments/form-input :: searchbar}"></div>
 		</div>
 	</div>
 </body>
